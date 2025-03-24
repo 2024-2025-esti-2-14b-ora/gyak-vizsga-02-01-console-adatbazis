@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using ScholarshipApplicationProject.Console.Models;
 
 namespace ScholarshipApplicationProject.Console.DbModels;
 
@@ -15,7 +16,7 @@ public partial class ScholarshipContext : DbContext
     {
     }
 
-    public virtual DbSet<Scholarship> Scholarships { get; set; }
+    public virtual DbSet<ScholarshipApplicant> Scholarships { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -23,7 +24,7 @@ public partial class ScholarshipContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Scholarship>(entity =>
+        modelBuilder.Entity<ScholarshipApplicant>(entity =>
         {
             entity
                 .HasNoKey()
