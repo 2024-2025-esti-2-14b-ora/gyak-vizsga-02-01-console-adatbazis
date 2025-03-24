@@ -27,7 +27,7 @@ public partial class ScholarshipContext : DbContext
         modelBuilder.Entity<ScholarshipApplicant>(entity =>
         {
             entity
-                .HasNoKey()
+                //.HasNoKey()
                 .ToTable("scholarship");
 
             entity.Property(e => e.Amount)
@@ -35,6 +35,7 @@ public partial class ScholarshipContext : DbContext
                 .HasColumnName("amount");
             entity.Property(e => e.Email).HasColumnName("email");
             entity.Property(e => e.Name).HasColumnName("name");
+            entity.HasKey(e => e.Email);
         });
 
         OnModelCreatingPartial(modelBuilder);
