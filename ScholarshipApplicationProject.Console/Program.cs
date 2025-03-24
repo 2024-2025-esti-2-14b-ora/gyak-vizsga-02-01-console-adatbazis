@@ -1,5 +1,6 @@
 ﻿using ScholarshipApplicationProject.Console.Models;
 using ScholarshipApplicationProject.Console.Repo;
+using System.Reflection.Metadata;
 
 
 Console.WriteLine("1. feladat");
@@ -33,4 +34,14 @@ Console.WriteLine(odon);
 
 Console.WriteLine("5. feladat");
 ScholarshipRepo repo = new ScholarshipRepo();
+Console.WriteLine($"{repo.GetNumberOfScholarship()} öszdíjas van.");
+
+Console.WriteLine("6. feladat");
+repo.AddScholarship(new ScholarshipApplicant("ugyeske@suli.net", "Ügyeske Ignác"));
+
+Console.WriteLine("5. feladat");
+Console.WriteLine($"{repo.GetNumberOfScholarship()} öszdíjas van.");
+
+repo.RemoveSholarship("bob@example.com");
+Console.WriteLine("5. feladat");
 Console.WriteLine($"{repo.GetNumberOfScholarship()} öszdíjas van.");
